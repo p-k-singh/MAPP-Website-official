@@ -30,7 +30,16 @@ export const ContactForm = () => {
 
       if (response.ok) {
         setStatus("success");
-        setFormData({ name: "", email: "", phone: "", message: "" });
+        setFormData({ 
+           name: "", 
+           email: "", 
+           phone: "", 
+           investmentGoal: "", 
+           budgetRange: "", 
+           riskTolerance: "Medium", 
+           investmentHorizon: "", 
+           message: "" 
+        });
       } else {
         setStatus("error");
       }

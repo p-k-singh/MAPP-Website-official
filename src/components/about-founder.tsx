@@ -21,35 +21,66 @@ export const AboutFounder = () => {
             transition={{ duration: 1 }}
             className="lg:col-span-12 xl:col-span-5 relative"
           >
-            <div className="relative group perspective-1000">
-              <div className="absolute -inset-6 bg-brand-accent/30 rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-100 transition-all duration-700 -z-10" />
-              <div className="relative rounded-[3rem] overflow-hidden shadow-premium border-8 border-white dark:border-white/5 transition-transform duration-700 group-hover:scale-[1.02]">
-                <img 
-                  src="/founder.png" 
-                  alt="Prabhat Kumar Singh" 
-                  className="object-cover w-full aspect-[4/5] object-top grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
-                />
-                <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-brand-primary/90 via-transparent to-transparent opacity-80" />
-                <div className="absolute bottom-10 left-10 right-10 text-white">
-                   <p className="text-3xl font-black mb-2 tracking-tighter italic">Prabhat Kumar Singh</p>
-                   <p className="text-[10px] font-bold text-brand-accent uppercase tracking-[0.3em]">Chief Executive Officer</p>
-                </div>
-              </div>
+            <div className="relative">
+              <div className="relative flex items-end w-full mb-8 isolate mt-8 sm:mt-0">
+                 {/* Soft Glow Background behind the main card */}
+                 <div className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/4 w-64 h-64 bg-brand-accent/20 rounded-full blur-[80px] pointer-events-none z-[-1]" />
+                 
+                 {/* Main Layout Container */}
+                 {/* Main Layout Container */}
+                 <div className="relative w-full grid grid-cols-[1.5fr_1fr] sm:grid-cols-[1.6fr_1fr] gap-3 sm:gap-6 items-start pb-10">
+                     
+                     {/* Foreground Main Card Container */}
+                     <div className="relative w-full z-20">
+                         {/* Foreground Image Card */}
+                         <div className="relative w-full rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden shadow-[0_20px_50px_-10px_rgba(0,30,60,0.3)] dark:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.8)] border border-border/50 dark:border-white/10 transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_30px_60px_-12px_rgba(0,168,107,0.2)] group bg-[#0A2540]">
+                            <img 
+                               src="/founder.png" 
+                               alt="Prabhat Kr Singh" 
+                               className="object-cover w-full aspect-[4/5] object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                            />
+                            {/* Premium Bottom Gradient */}
+                            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#0A2540] via-[#0A2540]/90 to-transparent pointer-events-none" />
+                            
+                            <div className="absolute bottom-5 left-4 sm:left-6 pr-2 text-left z-20">
+                               <h4 className="text-lg sm:text-2xl font-black mb-2 tracking-tighter leading-none text-white shadow-sm">Prabhat Kr<br/>Singh</h4>
+                               <span className="inline-block px-2 sm:px-3 py-1 sm:py-1.5 text-[8px] sm:text-[9px] font-bold text-brand-accent uppercase tracking-[0.2em] bg-white/10 backdrop-blur-md rounded-lg border border-white/20 shadow-sm leading-none">CEO & Strategist</span>
+                            </div>
+                         </div>
 
-              {/* Overlapping Detail Card */}
-              <motion.div 
-                initial={{ scale: 0, rotate: -10 }}
-                whileInView={{ scale: 1, rotate: 0 }}
-                viewport={{ once: true }}
-                transition={{ type: "spring", delay: 0.8 }}
-                className="absolute -top-10 -right-10 glass p-8 rounded-[2.5rem] shadow-2xl border border-white/50 hidden md:block"
-              >
-                 <div className="h-14 w-14 bg-brand-accent rounded-full mb-6 flex items-center justify-center text-white shadow-lg glow-emerald">
-                    <Sparkles size={28} />
+                         {/* External Floating Detail Card - Overlaps the left edge */}
+                         <motion.div 
+                           initial={{ scale: 0, opacity: 0 }}
+                           whileInView={{ scale: 1, opacity: 1 }}
+                           viewport={{ once: true }}
+                           transition={{ type: "spring", delay: 0.6 }}
+                           className="absolute top-8 sm:top-12 -left-4 sm:-left-8 glass bg-white/5 backdrop-blur-2xl p-4 sm:p-5 rounded-3xl shadow-2xl border border-white/20 hidden sm:block z-30"
+                         >
+                            <div className="h-12 w-12 bg-white/60 dark:bg-[#A8D3BE] rounded-full mb-3 flex items-center justify-center text-[#00A86B] dark:text-[#0A5F38] shadow-sm">
+                               <Sparkles size={24} />
+                            </div>
+                            <p className="text-2xl font-black text-white tracking-tighter leading-none mb-1 drop-shadow-sm">Elite</p>
+                            <p className="text-[8px] font-black text-white/50 uppercase tracking-widest drop-shadow-sm">Strategy Grade</p>
+                         </motion.div>
+                     </div>
+
+                     {/* Second Independent Card (Co-Founder) - Automatically smaller */}
+                     <div className="relative w-full translate-y-10 sm:translate-y-16 rounded-[1.25rem] sm:rounded-[1.75rem] overflow-hidden shadow-[0_20px_50px_-10px_rgba(0,30,60,0.3)] dark:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.8)] border border-border/50 dark:border-white/10 z-10 transition-all duration-500 ease-out hover:-translate-y-2 hover:-translate-y-[calc(-2rem-8px)] sm:hover:-translate-y-[calc(-3rem-8px)] hover:shadow-[0_30px_60px_-12px_rgba(0,168,107,0.2)] group bg-[#0A2540]">
+                        <img 
+                           src="/founder2.png.jpeg" 
+                           alt="Co-Founder" 
+                           className="object-cover w-full aspect-[4/5] object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                        />
+                        {/* Premium Bottom Gradient */}
+                        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#0A2540] via-[#0A2540]/80 to-transparent pointer-events-none" />
+                        
+                        <div className="absolute bottom-5 left-4 pr-2 text-left z-20">
+                           <h4 className="text-base sm:text-xl font-bold mb-2 tracking-tight text-white shadow-sm">Co-Founder</h4>
+                           <span className="inline-block px-2 sm:px-2.5 py-1 text-[7px] sm:text-[8px] font-bold text-white uppercase tracking-widest bg-white/10 backdrop-blur-md rounded-lg border border-white/20 shadow-sm leading-none">Leadership</span>
+                        </div>
+                     </div>
                  </div>
-                 <p className="text-3xl font-black text-brand-primary tracking-tighter leading-none mb-1">Elite</p>
-                 <p className="text-[10px] font-bold text-text-secondary uppercase tracking-[0.2em]">Strategy Grade</p>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
 
@@ -82,22 +113,6 @@ export const AboutFounder = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10 mb-16">
-               {[
-                 { title: "Strategic Alpha", text: "Mathematically modeling growth sectors before they hit the mainstream." },
-                 { title: "Risk Mitigation", text: "Sophisticated hedging techniques tailored for individual capital safety." },
-                 { title: "Adaptive Tech", text: "Leveraging custom algorithms to ensure high-fidelity execution." },
-                 { title: "Legacy Wealth", text: "Structuring long-term generational assets with absolute tax efficiency." }
-               ].map((item, i) => (
-                 <div key={i} className="group cursor-default">
-                    <div className="flex items-center space-x-3 mb-4">
-                       <span className="h-1.5 w-6 bg-brand-accent rounded-full transition-all group-hover:w-10" />
-                       <p className="font-black text-xl text-brand-primary dark:text-white tracking-tighter">{item.title}</p>
-                    </div>
-                    <p className="text-sm text-text-body dark:text-white/50 leading-relaxed pl-9">{item.text}</p>
-                 </div>
-               ))}
-            </div>
 
             <p className="text-lg text-text-body dark:text-white/40 leading-relaxed mb-12 font-medium">
               Prabhat Kumar Singh founded MAPP with a clear objective: to bridge the gap between institutional-grade sophistication and the everyday entrepreneur's need for direct, clear management.
@@ -105,7 +120,7 @@ export const AboutFounder = () => {
             
             <a href="#contact" className="inline-flex items-center justify-center p-0.5 rounded-2xl bg-gradient-to-br from-brand-accent to-brand-primary group overflow-hidden">
                <span className="bg-white dark:bg-brand-dark px-10 py-5 rounded-2xl text-base font-black uppercase tracking-[0.2em] text-brand-primary dark:text-white transition-all group-hover:bg-transparent group-hover:text-white">
-                  Meet the Strategist
+                  Meet the Founder
                </span>
             </a>
           </motion.div>

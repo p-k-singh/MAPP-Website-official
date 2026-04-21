@@ -1,7 +1,9 @@
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { Solutions } from "@/components/solutions";
+import { ServicesSection } from "@/components/services-section";
 import { AboutFounder } from "@/components/about-founder";
+import { WhyChooseUs } from "@/components/why-choose-us";
 import { ContactForm } from "@/components/contact-form";
 import { Footer } from "@/components/footer";
 
@@ -22,6 +24,12 @@ export default function Home() {
       <div className="h-px w-full bg-gradient-to-r from-transparent via-brand-accent/20 to-transparent" />
       
       <Solutions />
+      
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-brand-accent/20 to-transparent" />
+      
+      <ServicesSection />
+      
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-brand-accent/20 to-transparent" />
       
       <AboutFounder />
       
@@ -73,6 +81,11 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-brand-accent/20 to-transparent" />
+      
+      {/* Newly Added Why Choose Us Section */}
+      <WhyChooseUs />
+      
       <div className="h-px w-full bg-gradient-to-r from-transparent via-brand-accent/20 to-transparent" />
 
       <ContactForm />

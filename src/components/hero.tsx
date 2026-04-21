@@ -2,9 +2,23 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Zap, HeartHandshake, ChevronDown, Activity, Globe } from "lucide-react";
+import { ArrowRight, ShieldCheck, Zap, HeartHandshake, ChevronDown, Activity, Globe, TrendingUp, Star } from "lucide-react";
 import Link from "next/link";
 import { AnimatedCounter } from "./animated-counter";
+import { AreaChart, Area, ResponsiveContainer } from 'recharts';
+
+const chartData = [
+  { value: 10000 },
+  { value: 10200 },
+  { value: 10100 },
+  { value: 10500 },
+  { value: 10450 },
+  { value: 10900 },
+  { value: 11200 },
+  { value: 11800 },
+  { value: 12100 },
+  { value: 12480 },
+];
 
 export const Hero = () => {
   return (
@@ -59,38 +73,22 @@ export const Hero = () => {
               Transforming individual ambition into generational wealth with refined, entrepreneur-led strategies and sophisticated market analysis.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6">
-              <Link
-                href="#contact"
-                className="bg-brand-accent hover:bg-brand-accent-hover text-white px-10 py-5 rounded-2xl text-base font-black uppercase tracking-[0.2em] shadow-xl transition-all hover:scale-105 active:scale-95 glow-emerald flex items-center group"
-              >
-                Get Started
-                <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-2" />
-              </Link>
-              <Link
-                href="#solutions"
-                className="glass dark:bg-white/5 dark:text-white px-10 py-5 rounded-2xl text-base font-black uppercase tracking-[0.2em] border border-border shadow-soft transition-all hover:bg-brand-surface"
-              >
-                Explore
-              </Link>
-            </div>
-
             <div className="mt-20 grid grid-cols-3 gap-8 max-w-lg border-t border-border/50 dark:border-white/5 pt-10">
                <div>
                   <p className="text-2xl font-black text-brand-primary dark:text-white">
-                    <AnimatedCounter value={75} suffix="M+" />
+                    <AnimatedCounter value={5} suffix=" Cr+" />
                   </p>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-text-secondary">Assets Managed</p>
                </div>
                <div>
                   <p className="text-2xl font-black text-brand-primary dark:text-white">
-                    <AnimatedCounter value={12.4} suffix="%" decimals={1} />
+                    <AnimatedCounter value={18.87} suffix="%" decimals={2} />
                   </p>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-text-secondary">Avg. Return</p>
                </div>
                <div>
                   <p className="text-2xl font-black text-brand-primary dark:text-white">
-                    <AnimatedCounter value={500} suffix="+" />
+                    <AnimatedCounter value={75} suffix="+" />
                   </p>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-text-secondary">Global Clients</p>
                </div>
@@ -103,62 +101,121 @@ export const Hero = () => {
             transition={{ duration: 1, delay: 0.4 }}
             className="lg:col-span-5 relative h-full flex items-center justify-center lg:justify-end"
           >
-            {/* Primary Asymmetric Card */}
-            <div className="relative group perspective-1000">
-              <div className="absolute -inset-4 bg-brand-accent/20 rounded-[3rem] blur-2xl group-hover:bg-brand-accent/30 transition-all" />
-              <div className="relative glass bg-white rounded-[3rem] p-10 shadow-premium border border-white/50 w-full max-w-[400px] floating-element">
-                  <div className="flex items-center justify-between mb-10">
-                     <span className="p-3 bg-brand-primary text-white rounded-2xl">
-                        <Activity size={24} />
-                     </span>
-                     <span className="text-[10px] font-black uppercase tracking-widest text-brand-accent bg-brand-accent/10 px-3 py-1 rounded-full">Active Index</span>
-                  </div>
+            {/* Premium Fintech Card Overlay */}
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 1 }}
+              className="relative group perspective-1000 w-full max-w-[420px]"
+            >
+               {/* Soft animated background shadow */}
+               <div className="absolute -inset-2 bg-gradient-to-tr from-brand-accent/20 via-brand-primary-light/10 to-brand-accent/20 rounded-[2.5rem] blur-xl opacity-60 group-hover:opacity-100 group-hover:blur-2xl transition-all duration-700" />
+               
+               {/* Card Body */}
+               <div className="relative glass bg-white/95 dark:bg-brand-dark/95 backdrop-blur-xl rounded-[2.5rem] p-8 shadow-[0_20px_50px_rgba(0,168,107,0.1)] border border-white/60 dark:border-white/10 overflow-hidden transform transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_30px_60px_rgba(0,168,107,0.15)] flex flex-col gap-6">
                   
-                  <div className="space-y-6 mb-10">
-                     <div className="flex justify-between items-end">
-                        <p className="text-xs font-bold text-text-secondary uppercase">Strategy Alpha</p>
-                        <p className="text-3xl font-black text-brand-primary">+24.8%</p>
+                  {/* Top Header */}
+                  <div className="flex items-center justify-between">
+                     <div className="flex items-center space-x-3">
+                        <div className="h-10 w-10 flex flex-shrink-0 items-center justify-center bg-brand-surface dark:bg-white/5 rounded-2xl">
+                           <Activity size={20} className="text-brand-accent" />
+                        </div>
+                        <div>
+                           <div className="flex items-center space-x-2">
+                              <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-accent"></span>
+                              </span>
+                              <span className="text-[10px] font-black text-brand-primary dark:text-white uppercase tracking-widest">Active Index</span>
+                           </div>
+                           <p className="text-[9px] font-bold text-text-secondary mt-0.5">Updated 2 min ago</p>
+                        </div>
                      </div>
-                     <div className="w-full bg-brand-surface rounded-full h-3 overflow-hidden">
+                     <div className="px-2 py-1 bg-brand-accent/10 rounded-lg border border-brand-accent/20">
+                        <span className="text-[8px] font-black uppercase text-brand-accent tracking-[0.2em]">AI-Optimized</span>
+                     </div>
+                  </div>
+
+                  {/* Main Highlight */}
+                  <div>
+                     <p className="text-xs font-bold text-text-secondary uppercase tracking-widest mb-1">Strategy Alpha</p>
+                     <div className="flex items-end justify-between">
+                        <p className="text-5xl font-black text-brand-primary dark:text-white tracking-tighter">
+                          +24.8<span className="text-2xl text-brand-primary/50 dark:text-white/50">%</span>
+                        </p>
+                        <div className="flex items-center mb-1">
+                           <TrendingUp size={16} className="text-brand-accent mr-1" />
+                           <span className="text-xs font-black text-brand-accent">+24.8%</span>
+                        </div>
+                     </div>
+                     <div className="w-full bg-brand-surface dark:bg-white/5 rounded-full h-1 mt-4 overflow-hidden relative">
                         <motion.div 
-                          className="h-full bg-brand-accent" 
+                          className="absolute left-0 top-0 h-full bg-brand-accent" 
                           initial={{ width: 0 }}
                           animate={{ width: "85%" }}
-                          transition={{ duration: 1.5, delay: 1 }}
+                          transition={{ duration: 1.5, delay: 1, ease: "easeOut" }}
                         />
                      </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
-                     <div className="p-4 bg-brand-surface rounded-2xl">
-                        <p className="text-[10px] font-bold text-text-secondary mb-1">STABILITY</p>
-                        <p className="text-lg font-black text-brand-primary">Grade A</p>
+                  {/* Graphic / Outcome */}
+                  <div className="p-4 bg-brand-surface dark:bg-white/5 rounded-2xl relative overflow-hidden group/graph">
+                     <div className="absolute inset-x-0 bottom-0 top-1/2 bg-gradient-to-t from-brand-accent/10 to-transparent opacity-0 group-hover/graph:opacity-100 transition-opacity duration-700" />
+                     <div className="h-16 w-full mb-3 -mx-2">
+                       <ResponsiveContainer width="100%" height="100%">
+                         <AreaChart data={chartData}>
+                           <Area type="monotone" dataKey="value" stroke="#00A86B" strokeWidth={3} fill="url(#colorValue)" />
+                           <defs>
+                             <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
+                               <stop offset="5%" stopColor="#00A86B" stopOpacity={0.3}/>
+                               <stop offset="95%" stopColor="#00A86B" stopOpacity={0}/>
+                             </linearGradient>
+                           </defs>
+                         </AreaChart>
+                       </ResponsiveContainer>
                      </div>
-                     <div className="p-4 bg-brand-accent text-white rounded-2xl shadow-lg">
-                        <p className="text-[10px] font-bold mb-1 opacity-70">EXECUTION</p>
-                        <p className="text-lg font-black">99.9%</p>
+                     <div className="relative z-10 flex justify-between items-center text-[10px] font-bold text-text-secondary">
+                        <span>If you invested ₹10,000</span>
+                        <span className="text-brand-accent font-black text-xs flex items-center">₹12,480 <ArrowRight size={10} className="ml-1" /></span>
                      </div>
                   </div>
-              </div>
 
-              {/* Overlapping Floating Element */}
-              <motion.div 
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1, duration: 1 }}
-                className="absolute -bottom-10 -left-10 glass rounded-3xl p-6 shadow-2xl border border-white/50 z-20 hidden md:block"
-              >
-                 <div className="flex items-center space-x-4">
-                    <span className="h-10 w-10 bg-brand-accent/20 rounded-full flex items-center justify-center text-brand-accent">
-                       <Globe size={20} />
-                    </span>
-                    <div>
-                       <p className="text-[10px] font-black uppercase tracking-widest text-text-secondary">Client Coverage</p>
-                       <p className="text-sm font-black text-brand-primary">12+ Countries</p>
-                    </div>
-                 </div>
-              </motion.div>
-            </div>
+                  {/* Metrics */}
+                  <div className="grid grid-cols-2 gap-3">
+                     <div className="px-3 py-2.5 bg-brand-surface dark:bg-white/5 rounded-xl border border-border/40 dark:border-white/5 flex flex-col justify-center">
+                        <span className="text-[9px] font-bold text-text-secondary uppercase mb-1">Stability</span>
+                        <span className="text-sm font-black text-brand-primary dark:text-white">Grade A</span>
+                     </div>
+                     <div className="px-3 py-2.5 bg-[#E6F6ED] dark:bg-brand-accent/10 rounded-xl border border-brand-accent/20 flex flex-col justify-center relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-brand-accent/20 to-transparent rounded-bl-full" />
+                        <span className="text-[9px] font-bold text-brand-accent uppercase mb-1 relative z-10">Execution</span>
+                        <span className="text-sm font-black text-brand-accent relative z-10">99.9%</span>
+                     </div>
+                  </div>
+
+                  {/* Trust Indicators */}
+                  <div className="flex items-center justify-between px-1">
+                     <div className="flex items-center text-[10px] font-bold text-text-secondary">
+                        <ShieldCheck size={12} className="mr-1 text-brand-primary/60 dark:text-white/60" />
+                        Secure & Encrypted
+                     </div>
+                     <div className="flex items-center text-[10px] font-bold text-text-secondary">
+                        <Star size={10} className="fill-brand-accent text-brand-accent mr-0.5" />
+                        <Star size={10} className="fill-brand-accent text-brand-accent mr-0.5" />
+                        <Star size={10} className="fill-brand-accent text-brand-accent mr-0.5" />
+                        <Star size={10} className="fill-brand-accent text-brand-accent mr-0.5" />
+                        <Star size={10} className="fill-brand-accent text-brand-accent mr-2" />
+                        4.9 (10k+)
+                     </div>
+                  </div>
+
+                  {/* CTA Button */}
+                  <Link href="#contact" className="w-full relative group/btn overflow-hidden rounded-xl bg-gradient-to-r from-brand-accent to-brand-primary text-white font-black uppercase tracking-[0.2em] text-[10px] py-4 shadow-xl hover:scale-[1.02] active:scale-95 transition-all duration-300 flex justify-center glow-emerald">
+                     <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-300 rounded-xl" />
+                     <span className="relative z-10">Start Investing</span>
+                  </Link>
+               </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

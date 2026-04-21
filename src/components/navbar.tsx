@@ -16,7 +16,7 @@ export const Navbar = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
-    const sections = ["home", "solutions", "about", "insights", "contact"];
+    const sections = ["home", "solutions", "services", "about", "insights", "contact"];
     const observerOptions = {
       root: null,
       rootMargin: "-20% 0px -70% 0px",
@@ -46,6 +46,7 @@ export const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "#home", id: "home" },
     { name: "Solutions", href: "#solutions", id: "solutions" },
+    { name: "Services", href: "#services", id: "services" },
     { name: "About", href: "#about", id: "about" },
     { name: "Contact", href: "#contact", id: "contact" },
   ];

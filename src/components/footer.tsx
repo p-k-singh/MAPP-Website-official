@@ -8,7 +8,7 @@ export const Footer = () => {
       {/* Background patterns */}
       <div className="absolute inset-0 bg-grid opacity-5 pointer-events-none" />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-30" />
-      
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24">
           <div className="md:col-span-12 lg:col-span-5">
@@ -19,16 +19,16 @@ export const Footer = () => {
               We engineer sophisticated financial pathways for the visionary, the ambitious, and the elite. Your capital, refined.
             </p>
             <div className="flex flex-wrap gap-4">
-               {[
-                 { icon: <Shield size={16} />, text: "Regulated" },
-                 { icon: <Lock size={16} />, text: "Secured" },
-                 { icon: <Globe size={16} />, text: "Global" }
-               ].map((item, i) => (
-                 <div key={i} className="flex items-center space-x-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-white/60">
-                    {item.icon}
-                    <span>{item.text}</span>
-                 </div>
-               ))}
+              {[
+                { icon: <Shield size={16} />, text: "Regulated" },
+                { icon: <Lock size={16} />, text: "Secured" },
+                { icon: <Globe size={16} />, text: "Global" }
+              ].map((item, i) => (
+                <div key={i} className="flex items-center space-x-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-white/60">
+                  {item.icon}
+                  <span>{item.text}</span>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -52,14 +52,14 @@ export const Footer = () => {
 
           <div className="md:col-span-4 lg:col-span-3">
             <h4 className="font-black text-xs tracking-[0.4em] uppercase mb-10 text-white/40">Nexus</h4>
-            <address className="not-italic text-sm text-white/40 leading-relaxed mb-10 font-medium">
-              MAPP Strategic HQ<br />
-              Laxmi Nagar District Center<br />
-              New Delhi, NCR - 110092
-            </address>
+            <div className="bg-brand-accent/10 p-6 rounded-2xl border border-brand-accent/20 mb-4">
+              <p className="text-[10px] font-black text-brand-accent uppercase tracking-widest mb-2">Private Secure Email</p>
+              <p className="text-sm font-black text-white hover:text-brand-accent transition-colors cursor-pointer break-all">mappfinancialsolutions@gmail.com</p>
+            </div>
             <div className="bg-brand-accent/10 p-6 rounded-2xl border border-brand-accent/20">
-               <p className="text-[10px] font-black text-brand-accent uppercase tracking-widest mb-2">Private Secure Email</p>
-               <p className="text-sm font-black text-white hover:text-brand-accent transition-colors cursor-pointer">prabhat13585@gmail.com</p>
+              <p className="text-[10px] font-black text-brand-accent uppercase tracking-widest mb-2">Direct Lines</p>
+              <p className="text-sm font-black text-white hover:text-brand-accent transition-colors cursor-pointer mb-2">+91 7999-69-1340</p>
+              <p className="text-sm font-black text-white hover:text-brand-accent transition-colors cursor-pointer">+91 7979-90-6417</p>
             </div>
           </div>
         </div>
@@ -67,9 +67,9 @@ export const Footer = () => {
         <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center text-[10px] font-bold uppercase tracking-widest text-white/20 text-center md:text-left gap-8">
           <p>© {new Date().getFullYear()} MAPP Financial Solutions. Proprietary Architecture.</p>
           <div className="flex items-center space-x-8">
-             <Link href="#" className="hover:text-white transition-colors">Risk Disclosure</Link>
-             <Link href="#" className="hover:text-white transition-colors">SEC Compliance</Link>
-             <Link href="#" className="hover:text-white transition-colors">AML Policy</Link>
+            <Link href="#" className="hover:text-white transition-colors">Risk Disclosure</Link>
+            <Link href="#" className="hover:text-white transition-colors">SEC Compliance</Link>
+            <Link href="#" className="hover:text-white transition-colors">AML Policy</Link>
           </div>
         </div>
       </div>

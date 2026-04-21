@@ -108,7 +108,7 @@ export const Solutions = () => {
         >
           <div className="text-center lg:text-left mb-8 lg:mb-0">
              <p className="text-4xl font-black text-brand-primary dark:text-white mb-2">Ready to optimize your portfolio?</p>
-             <p className="text-text-body dark:text-white/60 font-medium">Join 500+ successful entrepreneurs worldwide.</p>
+             <p className="text-text-body dark:text-white/60 font-medium">Join 75+ successful entrepreneurs worldwide.</p>
           </div>
           <Link
             href="#contact"

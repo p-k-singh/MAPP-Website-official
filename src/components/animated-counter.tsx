@@ -40,3 +40,5 @@ export const AnimatedCounter = ({ value, duration = 2, suffix = "", decimals = 0
     </span>
   );
 };
+
+

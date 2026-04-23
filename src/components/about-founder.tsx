@@ -44,7 +44,7 @@ export const AboutFounder = () => {
                             
                             <div className="absolute bottom-5 left-4 sm:left-6 pr-2 text-left z-20">
                                <h4 className="text-lg sm:text-2xl font-black mb-2 tracking-tighter leading-none text-white shadow-sm">Prabhat Kr<br/>Singh</h4>
-                               <span className="inline-block px-2 sm:px-3 py-1 sm:py-1.5 text-[8px] sm:text-[9px] font-bold text-brand-accent uppercase tracking-[0.2em] bg-white/10 backdrop-blur-md rounded-lg border border-white/20 shadow-sm leading-none">CEO & Strategist</span>
+                               <span className="inline-block px-2 sm:px-3 py-1 sm:py-1.5 text-[8px] sm:text-[9px] font-bold text-brand-accent uppercase tracking-[0.2em] bg-white/10 backdrop-blur-md rounded-lg border border-white/20 shadow-sm leading-none">Strategist & Market Analyst</span>
                             </div>
                          </div>
 

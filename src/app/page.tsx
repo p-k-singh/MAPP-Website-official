@@ -71,7 +71,7 @@ export default function Home() {
                       <div className="h-16 w-16 rounded-2xl bg-brand-accent flex items-center justify-center font-black text-white text-xl shadow-lg glow-emerald">PK</div>
                       <div>
                          <p className="font-black text-xl tracking-tighter">Prabhat Kumar Singh</p>
-                         <p className="text-[10px] font-bold text-brand-accent uppercase tracking-[0.3em]">Strategist & CEO</p>
+                         <p className="text-[10px] font-bold text-brand-accent uppercase tracking-[0.3em]">Strategist & Market Analyst</p>
                       </div>
                    </div>
                 </div>

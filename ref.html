@@ -1,0 +1,979 @@
+
+
+Index · HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAPP Financial Solutions | Your Trusted Partner for Financial Growth</title>
+<meta name="description" content="MAPP Financial Solutions provides transparent, ethical and personalized financial consulting, investment advisory, wealth management and loan advisory services for individuals, professionals and businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     TOKENS
+  ============================================================ */
+  :root{
+    --navy:        #14294D;   /* primary deep blue - headings, nav */
+    --blue:        #2E5C9A;   /* accent blue - links, buttons */
+    --blue-deep:   #1E4477;   /* hover states */
+    --blue-tint:   #EDF2F9;   /* icon backgrounds, subtle fills */
+    --line-blue:   #7FA0C9;   /* signature chart line */
+    --bg:          #FFFFFF;
+    --section-bg:  #F7F8FA;
+    --text:        #262B33;
+    --text-muted:  #5B6472;
+    --border:      #E3E7ED;
+ 
+    --font-display: 'Poppins', 'Segoe UI', sans-serif;
+    --font-body:    'Lato', 'Segoe UI', sans-serif;
+ 
+    --container: 1180px;
+    --nav-height: 76px;
+  }
+ 
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; scroll-padding-top: var(--nav-height); }
+  body{
+    font-family: var(--font-body);
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  img,svg{ display:block; max-width:100%; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; }
+  h1,h2,h3,h4{ font-family: var(--font-display); color: var(--navy); font-weight:600; line-height:1.25; }
+  .container{ width:100%; max-width:var(--container); margin:0 auto; padding:0 28px; }
+  section{ padding: 100px 0; }
+  .section-bg{ background: var(--section-bg); }
+ 
+  :focus-visible{ outline: 2px solid var(--blue); outline-offset: 3px; }
+ 
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior:auto !important; }
+  }
+ 
+  /* ============================================================
+     EYEBROW / LABEL / SECTION HEADER
+  ============================================================ */
+  .eyebrow{
+    display:inline-block;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 16px;
+  }
+  .section-header{ max-width: 680px; margin-bottom: 56px; }
+  .section-header h2{ font-size: clamp(28px, 3.4vw, 38px); margin-bottom: 18px; }
+  .section-header p{ color: var(--text-muted); font-size: 17px; }
+  .section-header.center{ margin-left:auto; margin-right:auto; text-align:center; }
+ 
+  /* ============================================================
+     NAVIGATION
+  ============================================================ */
+  .site-nav{
+    position: fixed;
+    top:0; left:0; right:0;
+    height: var(--nav-height);
+    background: rgba(255,255,255,0.97);
+    border-bottom: 1px solid transparent;
+    z-index: 1000;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .site-nav.is-scrolled{
+    border-bottom-color: var(--border);
+    box-shadow: 0 2px 14px rgba(20,41,77,0.06);
+  }
+  .nav-inner{
+    max-width: var(--container);
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 28px;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-family: var(--font-display);
+    font-weight:700;
+    font-size: 19px;
+    color: var(--navy);
+  }
+  .brand-mark{
+    width:38px; height:38px;
+    border-radius:8px;
+    background: var(--navy);
+    color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-family: var(--font-display);
+    font-weight:700;
+    font-size:15px;
+    letter-spacing:0.02em;
+  }
+  .brand-text{ display:flex; flex-direction:column; line-height:1.15; }
+  .brand-text small{ font-family: var(--font-body); font-weight:400; font-size:11px; color: var(--text-muted); letter-spacing:0.04em; }
+ 
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap: 40px;
+  }
+  .nav-links a{
+    position:relative;
+    font-family: var(--font-display);
+    font-size: 14.5px;
+    font-weight:500;
+    color: var(--text);
+    padding: 6px 2px;
+    transition: color 0.2s ease;
+  }
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:-2px;
+    width:0%; height:2px;
+    background: var(--blue);
+    transition: width 0.25s ease;
+  }
+  .nav-links a:hover,
+  .nav-links a.is-active{ color: var(--blue-deep); }
+  .nav-links a:hover::after,
+  .nav-links a.is-active::after{ width:100%; }
+ 
+  .nav-cta{
+    background: var(--navy);
+    color:#fff !important;
+    padding: 11px 22px;
+    border-radius: 4px;
+    font-size:14px !important;
+    font-weight:600 !important;
+    transition: background 0.2s ease;
+  }
+  .nav-cta::after{ display:none; }
+  .nav-cta:hover{ background: var(--blue-deep); color:#fff !important; }
+ 
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:8px;
+  }
+  .nav-toggle span{
+    width:24px; height:2px; background: var(--navy);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .nav-toggle.is-open span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.is-open span:nth-child(2){ opacity:0; }
+  .nav-toggle.is-open span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+ 
+  /* ============================================================
+     HERO
+  ============================================================ */
+  .hero{
+    position:relative;
+    padding-top: calc(var(--nav-height) + 96px);
+    padding-bottom: 90px;
+    overflow:hidden;
+  }
+  .hero-inner{
+    display:grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items:center;
+  }
+  .hero-eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family: var(--font-display);
+    font-size:13px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+    color: var(--blue);
+    margin-bottom: 22px;
+  }
+  .hero-eyebrow::before{
+    content:""; width:26px; height:2px; background: var(--blue);
+  }
+  .hero h1{
+    font-size: clamp(36px, 4.6vw, 54px);
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+  .hero .hero-sub{
+    font-family: var(--font-display);
+    font-weight:500;
+    font-size: clamp(18px, 2vw, 22px);
+    color: var(--blue-deep);
+    margin-bottom: 26px;
+  }
+  .hero p.lead{
+    color: var(--text-muted);
+    font-size: 17px;
+    max-width: 540px;
+    margin-bottom: 36px;
+  }
+  .hero-actions{ display:flex; align-items:center; gap:28px; flex-wrap:wrap; }
+ 
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family: var(--font-display);
+    font-weight:600;
+    font-size: 15px;
+    padding: 15px 30px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    cursor:pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  }
+  .btn-primary{ background: var(--navy); color:#fff; }
+  .btn-primary:hover{ background: var(--blue-deep); transform: translateY(-1px); }
+  .btn-ghost-link{
+    font-family: var(--font-display);
+    font-weight:600; font-size:15px; color: var(--navy);
+    display:inline-flex; align-items:center; gap:8px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 4px;
+    transition: border-color 0.2s ease, color 0.2s ease, gap 0.2s ease;
+  }
+  .btn-ghost-link:hover{ color: var(--blue); border-color: var(--blue); gap:12px; }
+ 
+  .hero-stats{
+    display:flex;
+    gap: 36px;
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .hero-stats div strong{
+    display:block;
+    font-family: var(--font-display);
+    font-size: 26px;
+    color: var(--navy);
+    font-weight:700;
+  }
+  .hero-stats div span{
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+ 
+  /* Signature element: growth-line panel */
+  .hero-visual{
+    position:relative;
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 36px 30px 30px;
+    color:#fff;
+    min-height: 380px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .hero-visual-label{
+    font-family: var(--font-display);
+    font-size:12.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 4px;
+  }
+  .hero-visual-figure{
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight:700;
+    margin-bottom: 22px;
+  }
+  .growth-chart{ width:100%; height:170px; }
+  .growth-chart path.chart-line{
+    fill:none;
+    stroke: #ffffff;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 620;
+    stroke-dashoffset: 620;
+    animation: draw-line 1.9s ease forwards 0.3s;
+  }
+  .growth-chart path.chart-fill{ fill: rgba(255,255,255,0.07); stroke:none; opacity:0; animation: fade-in 1s ease forwards 1.6s; }
+  .growth-chart circle{ fill:#fff; opacity:0; animation: fade-in 0.5s ease forwards 2s; }
+  @keyframes draw-line{ to{ stroke-dashoffset:0; } }
+  @keyframes fade-in{ to{ opacity:1; } }
+  @media (prefers-reduced-motion: reduce){
+    .growth-chart path.chart-line{ stroke-dashoffset:0; animation:none; }
+    .growth-chart path.chart-fill, .growth-chart circle{ opacity:1; animation:none; }
+  }
+  .hero-visual-caption{
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.65);
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 16px;
+    margin-top: 18px;
+  }
+ 
+  /* ============================================================
+     ABOUT
+  ============================================================ */
+  .about-grid{
+    display:grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 64px;
+    align-items:start;
+  }
+  .about-grid .section-header{ margin-bottom:0; position:sticky; top: calc(var(--nav-height) + 24px); }
+  .about-copy p{ color: var(--text-muted); margin-bottom: 20px; font-size: 16px; }
+  .about-copy p strong{ color: var(--navy); }
+ 
+  .vm-box{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow:hidden;
+    margin: 32px 0;
+  }
+  .vm-box > div{ background:#fff; padding: 26px 28px; }
+  .vm-box h4{ font-size:16px; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+  .vm-box h4 .dot{ width:7px; height:7px; border-radius:50%; background: var(--blue); }
+  .vm-box p{ font-size: 14.5px; color: var(--text-muted); margin:0; }
+ 
+  .about-list{ display:flex; flex-direction:column; gap:18px; margin-top: 8px; }
+  .about-list li{
+    padding-left: 24px;
+    position:relative;
+    color: var(--text-muted);
+    font-size: 15.5px;
+  }
+  .about-list li::before{
+    content:"";
+    position:absolute; left:0; top:9px;
+    width:9px; height:9px;
+    border: 2px solid var(--blue);
+    border-radius:50%;
+  }
+  .about-list li strong{ color: var(--text); display:block; font-family:var(--font-display); font-weight:600; font-size:15.5px; margin-bottom:2px; }
+ 
+  /* ============================================================
+     SERVICES
+  ============================================================ */
+  .services-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .service-card{
+    background:#fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 30px 26px;
+    transition: border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+  }
+  .service-card:hover{
+    border-color: var(--blue);
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(20,41,77,0.08);
+  }
+  .service-icon{
+    width:46px; height:46px;
+    border-radius:8px;
+    background: var(--blue-tint);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom: 18px;
+    transition: background 0.22s ease;
+  }
+  .service-card:hover .service-icon{ background: var(--navy); }
+  .service-icon svg{ width:22px; height:22px; stroke: var(--blue); transition: stroke 0.22s ease; }
+  .service-card:hover .service-icon svg{ stroke:#fff; }
+  .service-card h3{ font-size: 17px; margin-bottom: 8px; }
+  .service-card p{ font-size: 14.5px; color: var(--text-muted); }
+ 
+  /* ============================================================
+     WHY CHOOSE US
+  ============================================================ */
+  .why-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
+  .why-card{
+    padding: 34px 26px;
+    background:#fff;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--navy);
+  }
+  .why-card .service-icon{ background: var(--blue-tint); }
+  .why-card h3{ font-size: 17px; margin: 16px 0 10px; }
+  .why-card p{ font-size: 14.5px; color: var(--text-muted); }
+ 
+  /* ============================================================
+     FINANCE ARTICLE
+  ============================================================ */
+  .finance-layout{
+    display:grid;
+    grid-template-columns: 260px 1fr;
+    gap: 56px;
+  }
+  .finance-toc{ position:sticky; top: calc(var(--nav-height) + 32px); align-self:start; }
+  .finance-toc h4{ font-size:13px; text-transform:uppercase; letter-spacing:0.08em; color: var(--text-muted); margin-bottom:16px; font-family:var(--font-display); font-weight:600; }
+  .finance-toc ul{ display:flex; flex-direction:column; gap:11px; border-left: 2px solid var(--border); }
+  .finance-toc a{
+    display:block;
+    padding: 2px 0 2px 16px;
+    font-size: 14px;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+  }
+  .finance-toc a:hover{ color: var(--blue-deep); }
+ 
+  .finance-article h3{
+    font-size: 21px;
+    margin-top: 40px;
+    margin-bottom: 14px;
+    scroll-margin-top: calc(var(--nav-height) + 20px);
+  }
+  .finance-article h3:first-child{ margin-top:0; }
+  .finance-article p{ color: var(--text-muted); font-size: 16px; margin-bottom: 16px; }
+  .finance-article p strong{ color: var(--text); }
+  .finance-closing{
+    margin-top: 36px;
+    padding: 28px 30px;
+    background: var(--blue-tint);
+    border-left: 3px solid var(--blue);
+    border-radius: 4px;
+  }
+  .finance-closing p{ color: var(--navy); margin-bottom:0; font-size:15.5px; }
+ 
+  /* ============================================================
+     CONTACT
+  ============================================================ */
+  .contact-wrap{
+    max-width: 760px;
+    margin: 0 auto;
+    text-align:center;
+  }
+  .contact-cards{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 44px;
+  }
+  .contact-card{
+    background:#fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 34px 28px;
+    text-align:left;
+  }
+  .contact-card .service-icon{ margin-bottom: 20px; }
+  .contact-card h3{ font-size:15px; text-transform:uppercase; letter-spacing:0.06em; color: var(--text-muted); font-family:var(--font-display); font-weight:600; margin-bottom:14px; }
+  .contact-card a{
+    display:block;
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight:600;
+    color: var(--navy);
+    padding: 6px 0;
+    transition: color 0.2s ease;
+  }
+  .contact-card a:hover{ color: var(--blue); }
+  .contact-card.email a{ font-size:16px; word-break:break-all; }
+ 
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 1024px){
+    .about-grid{ grid-template-columns: 1fr; }
+    .about-grid .section-header{ position:static; margin-bottom: 36px; }
+    .services-grid{ grid-template-columns: repeat(2, 1fr); }
+    .why-grid{ grid-template-columns: repeat(2, 1fr); }
+    .finance-layout{ grid-template-columns: 1fr; }
+    .finance-toc{ position:static; margin-bottom: 36px; }
+    .finance-toc ul{ display:flex; flex-direction:row; flex-wrap:wrap; gap: 10px 22px; border-left:none; }
+    .finance-toc a{ padding-left:0; }
+    .hero-inner{ grid-template-columns: 1fr; }
+    .hero-visual{ order:-1; min-height: 320px; }
+  }
+ 
+  @media (max-width: 768px){
+    section{ padding: 72px 0; }
+    .nav-links{
+      position:fixed;
+      top: var(--nav-height);
+      left:0; right:0;
+      background:#fff;
+      flex-direction:column;
+      align-items:flex-start;
+      gap: 0;
+      padding: 10px 28px 26px;
+      border-bottom: 1px solid var(--border);
+      transform: translateY(-8px);
+      opacity:0;
+      pointer-events:none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .nav-links.is-open{ opacity:1; transform:translateY(0); pointer-events:auto; }
+    .nav-links a{ width:100%; padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .nav-links a::after{ display:none; }
+    .nav-cta{ margin-top: 10px; text-align:center; justify-content:center; }
+    .nav-toggle{ display:flex; }
+    .hero{ padding-top: calc(var(--nav-height) + 56px); }
+    .hero-stats{ flex-wrap:wrap; gap: 24px 36px; }
+    .services-grid{ grid-template-columns: 1fr; }
+    .why-grid{ grid-template-columns: 1fr; }
+    .vm-box{ grid-template-columns: 1fr; }
+    .contact-cards{ grid-template-columns: 1fr; }
+    .container{ padding: 0 20px; }
+  }
+</style>
+</head>
+<body>
+ 
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+<nav class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <span class="brand-mark">MFS</span>
+      <span class="brand-text">MAPP Financial Solutions<small>FINANCIAL CONSULTING &amp; ADVISORY</small></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#services" class="nav-link">Services</a></li>
+      <li><a href="#why-choose-us" class="nav-link">Why Choose Us</a></li>
+      <li><a href="#finance" class="nav-link">Finance</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+      <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+ 
+<!-- ============================================================
+     HERO
+============================================================ -->
+<header class="hero" id="home">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <span class="hero-eyebrow">Financial Consulting &amp; Advisory</span>
+      <h1>MAPP Financial Solutions</h1>
+      <p class="hero-sub">Your Trusted Partner for Financial Growth</p>
+      <p class="lead">
+        We provide transparent, ethical and personalized financial guidance to individuals,
+        professionals and businesses. From everyday planning to long-term wealth strategy, our
+        advisors take the time to understand your goals and build a financial path suited
+        to your life, not a generic template.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Contact Us</a>
+        <a href="#services" class="btn-ghost-link">Explore Our Services →</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>15+</strong><span>Advisory Services</span></div>
+        <div><strong>100%</strong><span>Transparent Process</span></div>
+        <div><strong>1:1</strong><span>Personalized Guidance</span></div>
+      </div>
+    </div>
+ 
+    <div class="hero-visual" aria-hidden="true">
+      <div>
+        <div class="hero-visual-label">Disciplined, Long-Term Approach</div>
+        <div class="hero-visual-figure">Financial Confidence, Built Deliberately</div>
+      </div>
+      <svg class="growth-chart" viewBox="0 0 400 170" preserveAspectRatio="none">
+        <path class="chart-fill" d="M0,150 L40,138 L85,142 L130,110 L175,118 L220,80 L265,90 L310,48 L355,58 L400,20 L400,170 L0,170 Z"></path>
+        <path class="chart-line" d="M0,150 L40,138 L85,142 L130,110 L175,118 L220,80 L265,90 L310,48 L355,58 L400,20"></path>
+        <circle cx="400" cy="20" r="4.5"></circle>
+      </svg>
+      <div class="hero-visual-caption">Illustrative representation of disciplined, goal-based portfolio growth over time.</div>
+    </div>
+  </div>
+</header>
+ 
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="section-header">
+      <span class="eyebrow">About Us</span>
+      <h2>A Trusted Name in Financial Advisory</h2>
+      <p>Independent guidance, built on transparency and a genuine long-term interest in your financial wellbeing.</p>
+    </div>
+ 
+    <div class="about-copy">
+      <p>
+        <strong>MAPP Financial Solutions</strong> is a financial consulting and advisory firm built around a
+        simple idea: sound financial decisions come from clear information, not sales pressure. We work with
+        individuals, salaried professionals, business owners and entrepreneurs who want a dependable partner to
+        help them plan, protect and grow their finances with confidence.
+      </p>
+      <p>
+        Our team brings together experience across investment advisory, wealth management, retirement planning,
+        taxation and business finance, so that clients do not need to piece together advice from multiple,
+        disconnected sources. Every engagement begins with listening — understanding your income, obligations,
+        risk appetite and goals — before a single recommendation is made.
+      </p>
+ 
+      <div class="vm-box">
+        <div>
+          <h4><span class="dot"></span>Our Vision</h4>
+          <p>To be the most trusted financial advisory partner for individuals and businesses seeking clarity, discipline and long-term financial security.</p>
+        </div>
+        <div>
+          <h4><span class="dot"></span>Our Mission</h4>
+          <p>To deliver transparent, ethical and personalized financial guidance that helps every client make informed decisions with confidence.</p>
+        </div>
+      </div>
+ 
+      <p>
+        <strong>Our commitment</strong> is straightforward: full disclosure on every recommendation, no hidden
+        agendas, and advice that is suited to your circumstances rather than a fixed product list. We believe a
+        financial advisor's role is to educate as much as to advise, so clients understand not just what to do,
+        but why it makes sense for them.
+      </p>
+ 
+      <ul class="about-list">
+        <li><strong>Why clients trust us</strong>Consistency, honesty and a track record of putting client interests first, even when it means recommending caution over action.</li>
+        <li><strong>How we build long-term relationships</strong>Through regular portfolio reviews, proactive check-ins during major life events, and advice that evolves as your goals do — not a one-time transaction.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+ 
+<!-- ============================================================
+     SERVICES
+============================================================ -->
+<section id="services" class="section-bg">
+  <div class="container">
+    <div class="section-header center" style="margin-left:auto;margin-right:auto;">
+      <span class="eyebrow">What We Offer</span>
+      <h2>Our Services</h2>
+      <p>Comprehensive financial and lending advisory, delivered through one consistent point of contact.</p>
+    </div>
+ 
+    <div class="services-grid" id="servicesGrid"></div>
+  </div>
+</section>
+ 
+<!-- ============================================================
+     WHY CHOOSE US
+============================================================ -->
+<section id="why-choose-us">
+  <div class="container">
+    <div class="section-header center" style="margin-left:auto;margin-right:auto;">
+      <span class="eyebrow">Our Difference</span>
+      <h2>Why Choose MAPP Financial Solutions</h2>
+      <p>Four principles that guide every recommendation we make.</p>
+    </div>
+ 
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L20 6 V12 C20 17 16.5 20.5 12 22 C7.5 20.5 4 17 4 12 V6 Z"></path><path d="M9 12 L11 14 L15.5 9"></path></svg></div>
+        <h3>Integrity</h3>
+        <p>Every recommendation is made with full disclosure. We only suggest what genuinely fits your situation — never what pays us more.</p>
+      </div>
+      <div class="why-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.5-6.5 8-6.5s8 2.5 8 6.5"></path></svg></div>
+        <h3>Client First</h3>
+        <p>Your goals set the agenda. We take the time to understand your priorities before recommending a single product or strategy.</p>
+      </div>
+      <div class="why-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 L21 7.5 L12 12 L3 7.5 Z"></path><path d="M3 12 L12 16.5 L21 12"></path><path d="M3 16.5 L12 21 L21 16.5"></path></svg></div>
+        <h3>Professional Expertise</h3>
+        <p>Our advisors bring hands-on experience across investment, tax, and lending, so guidance is grounded in real-world practice.</p>
+      </div>
+      <div class="why-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 C4 7.5 7.5 4 12 4 C16.5 4 20 7.5 20 12 C20 16.5 16.5 20 12 20"></path><path d="M12 20 L9 17 M12 20 L9 23"></path><path d="M12 8 V12 L15 14"></path></svg></div>
+        <h3>Long-Term Relationship</h3>
+        <p>We stay engaged well beyond the first meeting, reviewing your plan regularly as your income, goals and life stage change.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ============================================================
+     FINANCE ARTICLE
+============================================================ -->
+<section id="finance" class="section-bg">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Financial Literacy</span>
+      <h2>Understanding Finance &amp; Financial Management</h2>
+      <p>A closer look at the principles that underpin sound financial decisions — for individuals and businesses alike.</p>
+    </div>
+ 
+    <div class="finance-layout">
+      <aside class="finance-toc">
+        <h4>On This Page</h4>
+        <ul>
+          <li><a href="#f-what-is-finance">What is Finance</a></li>
+          <li><a href="#f-financial-management">Financial Management</a></li>
+          <li><a href="#f-planning">Why Planning Matters</a></li>
+          <li><a href="#f-saving">Importance of Saving</a></li>
+          <li><a href="#f-investing">Importance of Investing</a></li>
+          <li><a href="#f-risk">Risk Management</a></li>
+          <li><a href="#f-wealth">Long-Term Wealth Creation</a></li>
+          <li><a href="#f-discipline">Financial Discipline</a></li>
+          <li><a href="#f-retirement">Retirement Planning</a></li>
+          <li><a href="#f-business">Business Financial Planning</a></li>
+          <li><a href="#f-guidance">The Role of Professional Guidance</a></li>
+        </ul>
+      </aside>
+ 
+      <article class="finance-article">
+        <h3 id="f-what-is-finance">What is Finance</h3>
+        <p>
+          Finance, in simple terms, is the management of money — how it is earned, saved, spent, invested and
+          protected over time. It covers everything from a household budget to a company's capital structure,
+          and it shapes almost every major decision a person or business makes, whether that is buying a home,
+          expanding operations, or preparing for retirement. Understanding finance is not about memorizing
+          formulas; it is about developing the judgment to make informed choices with limited resources.
+        </p>
+ 
+        <h3 id="f-financial-management">What is Financial Management</h3>
+        <p>
+          Financial management is the practical discipline of planning, organizing and controlling financial
+          resources to achieve specific objectives. For an individual, this might mean allocating income across
+          essential expenses, savings and investments. For a business, it extends to managing cash flow, capital
+          expenditure, working capital and financing decisions. Good financial management ensures that money is
+          not just earned, but put to work efficiently toward clearly defined goals.
+        </p>
+ 
+        <h3 id="f-planning">Why Financial Planning is Important</h3>
+        <p>
+          Financial planning provides direction. Without a plan, income tends to get absorbed by immediate needs,
+          leaving little room for future goals such as a child's education, homeownership or a comfortable
+          retirement. A well-structured financial plan translates broad ambitions into specific, time-bound
+          targets, and creates a roadmap for how income, savings and investments should work together to reach
+          them. It also brings visibility to gaps — insufficient insurance cover, inadequate retirement savings,
+          or excessive debt — while there is still time to address them.
+        </p>
+ 
+        <h3 id="f-saving">Importance of Saving</h3>
+        <p>
+          Saving is the foundation on which every other financial goal is built. A consistent savings habit
+          creates a buffer against emergencies, reduces dependence on credit during difficult periods, and
+          supplies the capital needed to pursue investment opportunities. The habit of saving, even in modest
+          amounts, compounds meaningfully over the years and instills a discipline that supports every later
+          financial decision.
+        </p>
+ 
+        <h3 id="f-investing">Importance of Investing</h3>
+        <p>
+          While saving preserves capital, investing is what allows that capital to grow faster than inflation
+          erodes it. Directing savings into suitable instruments — equities, mutual funds, fixed income, or other
+          asset classes — allows money to work over time rather than sit idle. The right investment mix depends
+          heavily on an individual's goals, time horizon and risk appetite, which is why generic advice rarely
+          serves anyone well; investment decisions should be personalized.
+        </p>
+ 
+        <h3 id="f-risk">Risk Management</h3>
+        <p>
+          Every financial decision carries some degree of risk, and managing that risk is as important as pursuing
+          returns. This includes diversifying investments so that no single asset or event can cause outsized
+          damage, maintaining adequate insurance cover for life, health and assets, and keeping a realistic
+          emergency fund. Effective risk management does not eliminate uncertainty, but it ensures that
+          unexpected events do not derail long-term financial goals.
+        </p>
+ 
+        <h3 id="f-wealth">Long-Term Wealth Creation</h3>
+        <p>
+          Wealth is rarely built through a single decision; it accumulates through consistent, disciplined choices
+          sustained over years. Long-term wealth creation relies on starting early, staying invested through
+          market cycles, reinvesting returns, and periodically reviewing the plan as circumstances change. Patience
+          and consistency, more than any single strategy, tend to be the defining factors behind long-term
+          financial success.
+        </p>
+ 
+        <h3 id="f-discipline">Financial Discipline</h3>
+        <p>
+          Financial discipline is the thread that connects planning, saving, investing and risk management into a
+          working system. It means following a budget, avoiding unnecessary debt, staying committed to
+          investment plans during volatile periods, and resisting decisions driven by short-term emotion rather
+          than long-term objectives. Even the most well-designed financial plan depends on disciplined execution
+          to succeed.
+        </p>
+ 
+        <h3 id="f-retirement">Retirement Planning</h3>
+        <p>
+          Retirement planning is about ensuring that income continues, in some form, once active earning stops.
+          Because retirement often spans two to three decades, it requires early and consistent contributions,
+          an asset mix that balances growth with stability, and periodic reassessment as retirement approaches.
+          The earlier this planning begins, the more manageable the contributions required to reach a comfortable
+          retirement corpus.
+        </p>
+ 
+        <h3 id="f-business">Business Financial Planning</h3>
+        <p>
+          For businesses, financial planning extends beyond personal goals to include working capital management,
+          capital budgeting, financing decisions and risk assessment. Business owners must balance growth
+          ambitions with cash flow realities, decide when debt financing makes sense, and plan for contingencies
+          that could affect operations. Sound business financial planning creates the stability needed to pursue
+          growth opportunities without exposing the business to unnecessary risk.
+        </p>
+ 
+        <h3 id="f-guidance">How Professional Guidance Improves Decision-Making</h3>
+        <p>
+          Professional financial guidance brings structure and objectivity to decisions that are often clouded by
+          emotion, incomplete information, or short-term pressures. An experienced advisor can identify blind
+          spots, translate complex options into clear trade-offs, and hold clients accountable to their own
+          long-term goals. The value of guidance is not in predicting markets, but in helping clients make
+          considered decisions consistently, over time.
+        </p>
+ 
+        <div class="finance-closing">
+          <p>
+            At MAPP Financial Solutions, we are committed to helping every client build financial confidence
+            through transparency, ethical practice and personalized guidance — because sound financial decisions,
+            made consistently, are what create lasting financial security.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+ 
+<!-- ============================================================
+     CONTACT
+============================================================ -->
+<section id="contact">
+  <div class="container contact-wrap">
+    <span class="eyebrow">Get In Touch</span>
+    <h2>Contact MAPP Financial Solutions</h2>
+    <p style="color:var(--text-muted); margin-top:14px;">
+      Speak with our advisory team directly — no forms, no waiting rooms.
+    </p>
+ 
+    <div class="contact-cards">
+      <div class="contact-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2E5C9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5c0-.6.4-1 1-1h2.2c.5 0 .9.3 1 .8l.8 3.2c.1.4 0 .9-.3 1.2L7.5 10.4c1.2 2.6 3.3 4.7 5.9 5.9l1.2-1.2c.3-.3.8-.4 1.2-.3l3.2.8c.5.1.8.5.8 1V19c0 .6-.4 1-1 1h-1C9.9 20 4 14.1 4 6.9V5Z"></path></svg></div>
+        <h3>Phone</h3>
+        <a href="tel:+917999691340">7999 69 1340</a>
+        <a href="tel:+917979906417">7979 90 6417</a>
+      </div>
+      <div class="contact-card email">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2E5C9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7 L12 13 L21 7"></path></svg></div>
+        <h3>Email</h3>
+        <a href="mailto:info@mappfinancialsolutions.com">info@mappfinancialsolutions.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<script>
+(function(){
+  "use strict";
+ 
+  /* ---------- Service card data & icon library ---------- */
+  var icons = {
+    briefcase: '<path d="M4 8h16v11H4z"></path><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path><path d="M4 13h16"></path>',
+    target: '<circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="4"></circle><circle cx="12" cy="12" r="0.6" fill="currentColor"></circle>',
+    trending: '<path d="M4 17 L10 11 L14 15 L20 7"></path><path d="M14 7h6v6"></path>',
+    shield: '<path d="M12 2 L20 6 V12 C20 17 16.5 20.5 12 22 C7.5 20.5 4 17 4 12 V6 Z"></path>',
+    pie: '<circle cx="12" cy="12" r="8.5"></circle><path d="M12 3.5V12h8.5"></path>',
+    clock: '<circle cx="12" cy="12" r="8.5"></circle><path d="M12 7v5l3.5 2"></path>',
+    percent: '<path d="M6 18 L18 6"></path><circle cx="7.5" cy="7.5" r="2"></circle><circle cx="16.5" cy="16.5" r="2"></circle>',
+    layers: '<path d="M12 3 L21 7.5 L12 12 L3 7.5 Z"></path><path d="M3 12 L12 16.5 L21 12"></path><path d="M3 16.5 L12 21 L21 16.5"></path>',
+    repeat: '<path d="M4 12a8 8 0 0 1 14-5.3L20 8"></path><path d="M20 4v4h-4"></path><path d="M20 12a8 8 0 0 1-14 5.3L4 16"></path><path d="M4 20v-4h4"></path>',
+    building: '<rect x="5" y="3" width="14" height="18"></rect><path d="M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1"></path>',
+    wallet: '<rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18"></path><circle cx="16.5" cy="14.5" r="1"></circle>',
+    home: '<path d="M4 11 L12 4 L20 11"></path><path d="M6 10v10h12V10"></path>',
+    key: '<circle cx="8" cy="15" r="4"></circle><path d="M11 12 L20 3"></path><path d="M16 7l2.5 2.5M19 4l1.5 1.5"></path>',
+    gear: '<circle cx="12" cy="12" r="3"></circle><path d="M12 3v2.4M12 18.6V21M21 12h-2.4M5.4 12H3M18 6l-1.7 1.7M7.7 16.3 6 18M18 18l-1.7-1.7M7.7 7.7 6 6"></path>',
+    shieldCheck: '<path d="M12 2 L20 6 V12 C20 17 16.5 20.5 12 22 C7.5 20.5 4 17 4 12 V6 Z"></path><path d="M9 12 L11 14 L15.5 9"></path>'
+  };
+ 
+  var services = [
+    { icon:'briefcase',  name:'Financial Consulting',   desc:'Independent, goal-based consulting to help you make sense of your overall financial picture and next steps.' },
+    { icon:'target',     name:'Financial Planning',      desc:'Structured, time-bound plans that align your income, savings and investments with your personal goals.' },
+    { icon:'trending',   name:'Investment Advisory',     desc:'Personalized investment recommendations based on your risk appetite, time horizon and financial objectives.' },
+    { icon:'shield',     name:'Wealth Management',       desc:'Ongoing management of your assets to preserve, grow and transition wealth across life stages.' },
+    { icon:'pie',        name:'Portfolio Review',        desc:'Periodic, unbiased evaluation of your existing investments to identify gaps, overlaps and rebalancing needs.' },
+    { icon:'clock',      name:'Retirement Planning',     desc:'Long-horizon planning to build a retirement corpus that supports the lifestyle you envision.' },
+    { icon:'percent',    name:'Tax Planning Assistance', desc:'Guidance on tax-efficient financial decisions that stay compliant while supporting your broader goals.' },
+    { icon:'layers',     name:'Mutual Fund Guidance',    desc:'Fund selection and allocation guidance suited to your objectives, time frame and risk comfort.' },
+    { icon:'repeat',     name:'SIP Planning',            desc:'Disciplined, systematic investment strategies designed to build wealth steadily over time.' },
+    { icon:'building',   name:'Business Loans',          desc:'Advisory support in identifying and structuring the right financing for business growth and operations.' },
+    { icon:'wallet',     name:'Personal Loans',          desc:'Guidance on suitable personal loan options based on your requirement and repayment capacity.' },
+    { icon:'home',       name:'Home Loans',              desc:'End-to-end advisory to help you evaluate and secure the right home loan structure.' },
+    { icon:'key',        name:'Loan Against Property',   desc:'Structured guidance on leveraging property assets for financing while managing associated risk.' },
+    { icon:'gear',       name:'MSME Finance',            desc:'Financing advisory tailored to the working capital and growth needs of small and medium enterprises.' },
+    { icon:'shieldCheck',name:'Credit & Risk Consulting',desc:'Assessment of credit exposure and risk factors to support sound borrowing and lending decisions.' }
+  ];
+ 
+  var grid = document.getElementById('servicesGrid');
+  var html = '';
+  services.forEach(function(s){
+    html += '<div class="service-card">' +
+              '<div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">' + icons[s.icon] + '</svg></div>' +
+              '<h3>' + s.name + '</h3>' +
+              '<p>' + s.desc + '</p>' +
+            '</div>';
+  });
+  grid.innerHTML = html;
+ 
+  /* ---------- Nav scroll shadow ---------- */
+  var nav = document.getElementById('siteNav');
+  var onScroll = function(){
+    nav.classList.toggle('is-scrolled', window.scrollY > 8);
+  };
+  document.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+ 
+  /* ---------- Mobile menu toggle ---------- */
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function(){
+    var open = links.classList.toggle('is-open');
+    toggle.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.classList.remove('is-open');
+      toggle.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+ 
+  /* ---------- Scroll-spy active link ---------- */
+  var navLinkEls = document.querySelectorAll('.nav-link');
+  var sections = ['home','about','services','why-choose-us','finance','contact']
+    .map(function(id){ return document.getElementById(id); })
+    .filter(Boolean);
+ 
+  var spy = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var id = entry.target.id;
+        navLinkEls.forEach(function(link){
+          link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+ 
+  sections.forEach(function(sec){ spy.observe(sec); });
+})();
+</script>
+ 
+</body>
+</html>
+ 
